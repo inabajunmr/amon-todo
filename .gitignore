@@ -36,3 +36,4 @@ inc/
 
 /local
 .DS_Store
+/*.db
