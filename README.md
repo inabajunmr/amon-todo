@@ -35,7 +35,7 @@ $ curl -X POST --data-urlencode 'username=init' --data-urlencode 'password=passw
 List users.
 
 ```
-$ curl -H "Authorization:Bearer C77609E8-B97D-11EC-9728-94BE6C8D9CDA" localhost:5000/user
+$ curl -H "Authorization:Bearer XXX" localhost:5000/user
 ```
 
 Post new user.
@@ -48,4 +48,27 @@ Delete user.
 
 ```
 $ curl -H "Authorization:Bearer XXX" -X DELETE -H localhost:5000/user/inaba
+```
+
+### Todo
+
+Todo belongs to specific user.
+This relationship is binded by access token.
+
+List todos.
+
+```
+$ curl -H "Authorization:Bearer XXX" -X GET localhost:5000/todo
+```
+
+Post new todo.
+
+```
+$ curl -H "Authorization:Bearer XXX" -X POST -H "Content-Type: application/json" -d '{"todo":"learning perl"}' localhost:5000/todo
+```
+
+Delete todo.
+
+```
+$ curl -H "Authorization:Bearer XXX" -X DELETE localhost:5000/todo/XXX
 ```

@@ -19,4 +19,10 @@ table {
     columns qw(access_token username expires_at_epoch_sec);
 };
 
+table {
+    name 'todo';
+    pk 'todo_id';
+    columns qw(todo_id todo username create_at_epoch_sec);
+};
+
 1;
