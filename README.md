@@ -25,7 +25,7 @@ Using bearer access token.
 Issue access token.
 
 ```
-$ curl -X POST --data-urlencode 'username=init' --data-urlencode 'password=pswd' --data-urlencode 'grant_type=password' localhost:5000/oauth/token
+$ curl -X POST --data-urlencode 'username=init' --data-urlencode 'password=password' --data-urlencode 'grant_type=password' localhost:5000/oauth/token
 ```
 
 `init` user is created by sql/sqlite.sql.
@@ -35,7 +35,7 @@ $ curl -X POST --data-urlencode 'username=init' --data-urlencode 'password=pswd'
 List users.
 
 ```
-$ curl -H "Authorization:Bearer XXX" localhost:5000/user
+$ curl -H "Authorization:Bearer C77609E8-B97D-11EC-9728-94BE6C8D9CDA" localhost:5000/user
 ```
 
 Post new user.

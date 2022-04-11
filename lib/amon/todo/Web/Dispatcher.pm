@@ -98,16 +98,16 @@ post '/oauth/token' => sub {
     my $uuid  = $ug->create();
     my $token = $ug->to_string($uuid);
 
-    # TODO expire
     $c->db->insert(
         'access_token' => {
-            access_token => $token,
-            username     => $username,
+            access_token         => $token,
+            username             => $username,
+            expires_at_epoch_sec => time() + 10
         }
     );
 
     return $c->render_json(
-        { access_token => $token, token_type => 'bearer' } );
+        { access_token => $token, token_type => 'bearer', expires_in => 10 } );
 };
 
 # invalid = 1
@@ -128,7 +128,10 @@ sub verify_access_token {
         return 1;
     }
 
-    # TODO expire
+    print 'save:', $saved_token->expires_at_epoch_sec, ' now:', time();
+    if ( $saved_token->expires_at_epoch_sec < time() ) {
+        return 1;
+    }
 
     return 0;
 }

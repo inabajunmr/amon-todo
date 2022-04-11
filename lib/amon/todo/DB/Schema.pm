@@ -16,7 +16,7 @@ table {
 table {
     name 'access_token';
     pk 'access_token';
-    columns qw(access_token username);
+    columns qw(access_token username expires_at_epoch_sec);
 };
 
 1;
