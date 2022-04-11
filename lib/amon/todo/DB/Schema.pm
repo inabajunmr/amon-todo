@@ -8,9 +8,15 @@ use Teng::Schema::Declare;
 base_row_class 'amon::todo::DB::Row';
 
 table {
-    name 'member';
-    pk 'id';
-    columns qw(id name);
+    name 'user';
+    pk 'username';
+    columns qw(username password);
+};
+
+table {
+    name 'access_token';
+    pk 'access_token';
+    columns qw(access_token username);
 };
 
 1;

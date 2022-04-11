@@ -1,4 +1,11 @@
-CREATE TABLE IF NOT EXISTS member (
-    id           INTEGER NOT NULL PRIMARY KEY,
-    name         VARCHAR(255)
+CREATE TABLE IF NOT EXISTS user (
+    username     VARCHAR(255) NOT NULL PRIMARY KEY,
+    password         VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS access_token (
+    username     VARCHAR(255) NOT NULL,
+    access_token         VARCHAR(255) NOT NULL PRIMARY KEY
+);
+
+INSERT INTO user (username, password) VALUES ('init', 'password');
