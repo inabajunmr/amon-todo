@@ -1,5 +1,7 @@
 # amon-todo
 
+amon-todo is sample API server for todo application.
+
 ## Init
 
 Initialize database for local develoment.
@@ -33,17 +35,17 @@ $ curl -X POST --data-urlencode 'username=init' --data-urlencode 'password=pswd'
 List users.
 
 ```
-$ curl localhost:5000/user
+$ curl -H "Authorization:Bearer XXX" localhost:5000/user
 ```
 
 Post new user.
 
 ```
-$ curl -X POST -H "Content-Type: application/json" -d '{"username":"inaba", "password":"pswd"}' localhost:5000/user
+$ curl -H "Authorization:Bearer XXX" -X POST -H "Content-Type: application/json" -d '{"username":"inaba", "password":"pswd"}' localhost:5000/user
 ```
 
 Delete user.
 
 ```
-$ curl -X DELETE -H localhost:5000/user/inaba
+$ curl -H "Authorization:Bearer XXX" -X DELETE -H localhost:5000/user/inaba
 ```
