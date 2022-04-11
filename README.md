@@ -2,7 +2,30 @@
 
 amon-todo is sample API server for todo application.
 
-## Init
+## Install library
+
+```
+$ caton install
+```
+
+### For my environment(M1 Mac Bigsur)
+
+Before `carton install`.
+
+```
+PATH="$(brew --prefix mysql-client)/bin:$PATH"
+export LIBRARY_PATH=$(brew --prefix openssl)/lib:$LIBRARY_PATH
+$ brew install mysql
+$ mysql
+mysql > create user 'inabajun'@'localhost' identified  by 's3kr1t';
+mysql > grant all privileges on test.* to 'inabajun'@'localhost';
+$ brew install zstd
+$ export LIBRARY_PATH=$(brew --prefix zstd)/lib:$LIBRARY_PATH
+```
+
+## With SQLite
+
+### Init
 
 Initialize database for local develoment.
 
@@ -10,11 +33,25 @@ Initialize database for local develoment.
 $ sqlite3 db/development.db < sql/sqlite.sql
 ```
 
-## Run
+### Run
 
 ```
 $ carton exec -- plackup -Ilib -R ./lib --access-log /dev/null -p 5000 -a ./script/amon-todo-server
 ```
+
+## With MySQL
+
+### Init
+
+Run MySQL.
+
+```
+$ mysql.server # or using docker
+$ mysql -uroot
+mysql > create database amontodo
+```
+
+and create tables by `sql/mysql.sql`.
 
 ## API
 
