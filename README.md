@@ -53,6 +53,13 @@ mysql > create database amontodo
 
 and create tables by `sql/mysql.sql`.
 
+### Run
+
+```
+$ export PLACK_ENV="production"
+$ carton exec -- plackup -Ilib -R ./lib --access-log /dev/null -p 5000 -a ./script/amon-todo-server
+```
+
 ## API
 
 ### Authentication
