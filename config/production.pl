@@ -1,10 +1,12 @@
 use File::Spec;
 use File::Basename qw(dirname);
-my $basedir = File::Spec->rel2abs(File::Spec->catdir(dirname(__FILE__), '..'));
-my $dbpath = File::Spec->catfile($basedir, 'db', 'production.db');
+my $dbuser = defined($ENV{DATABASE_USERNAME}) ? $ENV{DATABASE_USERNAME} : 'root';
+my $dbsecret = defined($ENV{DATABASE_SECRET}) ? $ENV{DATABASE_SECRET} : '';
+my $dbhost = defined($ENV{DATABASE_SECRET}) ? $ENV{DATABASE_SECRET} : 'localhost';
+
 +{
-    'DBI' => ["dbi:mysql:host=localhost;port=3306;database=amontodo",
-              'root', '',
+    'DBI' => ["dbi:mysql:host=$$dbhost;port=3306;database=amontodo",
+              $dbuser, $dbsecret,
               +{
                 mysql_enable_utf8 => 1,
                }
