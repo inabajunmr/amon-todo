@@ -57,6 +57,9 @@ and create tables by `sql/mysql.sql`.
 
 ```
 $ export PLACK_ENV="production"
+$ export DATABASE_USERNAME="root"
+$ export DATABASE_SECRET=""
+$ export DATABASE_HOST="localhost"
 $ carton exec -- plackup -Ilib -R ./lib --access-log /dev/null -p 5000 -a ./script/amon-todo-server
 ```
 
@@ -71,7 +74,7 @@ Issue access token.
 ```
 $ curl -X POST --data-urlencode 'username=init' --data-urlencode 'password=password' --data-urlencode 'grant_type=password' localhost:5000/oauth/token
 ```
-
+ 
 `init` user is created by sql/sqlite.sql.
 
 ### User
